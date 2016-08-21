@@ -36,6 +36,7 @@ nav.navbar{
     background: white;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 30px 30px;
 }
 .service-item-icon1{
     background-image: url("../images/serviceitem1.png");
@@ -80,4 +81,45 @@ nav.navbar{
     background: #B5B5B5;
     left: -10px;
     top: 8px;
+}
+
+.about li{
+    list-style: none;
+    position: relative;
+    margin: 10px auto;
+}
+.about li::before{
+    content: ' ';
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    background: #1F5EA8;
+    left: -20px;
+    top: 4px;
+}
+
+.footer{
+    background-image: url("../images/footerbg.png");
+    background-repeat: repeat;
+    padding:40px 0 20px 0;
+    text-align: center;
+    color: #fff;;
+}
+
+.anli-item img{
+    width:100%;
+}
+.anli-item{
+    padding:5px;
+}
+.anli-more img{
+    display: block;
+    margin: auto;
+    padding: 40px;
+}
+
+.fangan-list li{
+    list-style: none;
+    text-align: center;
+    font-size: 1.5em;
 }
