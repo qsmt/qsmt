@@ -78,6 +78,7 @@ nav.leftnav a.active{
 
 .service-item-content ul{
     min-height:160px;
+    padding-left: 10px;
 }
 .service-item-content li{
     list-style: none;
