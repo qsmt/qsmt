@@ -34,6 +34,26 @@ nav.navbar{
     border-radius: 50%;
     border:1px solid #D7D7D7;
     background: white;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.service-item-icon1{
+    background-image: url("../images/serviceitem1.png");
+}
+.service-item-icon2{
+    background-image: url("../images/serviceitem2.png");
+}
+.service-item-icon3{
+    background-image: url("../images/serviceitem3.png");
+}
+.service-item-icon4{
+    background-image: url("../images/serviceitem4.png");
+}
+.service-item-icon5{
+    background-image: url("../images/serviceitem5.png");
+}
+.service-item-icon6{
+    background-image: url("../images/serviceitem6.png");
 }
 .service-item-icon .fa{
     font-size: 2em;
@@ -59,5 +79,5 @@ nav.navbar{
     height: 1px;
     background: #B5B5B5;
     left: -10px;
-    top: 10px;
+    top: 8px;
 }
