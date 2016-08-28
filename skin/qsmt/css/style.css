@@ -111,6 +111,7 @@ nav.leftnav a.active{
 }
 
 .footer{
+    position: relative;
     background-image: url("../images/footerbg.png");
     background-repeat: repeat;
     padding:40px 0 20px 0;
@@ -118,6 +119,16 @@ nav.leftnav a.active{
     color: #fff;;
 }
 
+.anli-item .title{
+    position: absolute;
+    color: #fff;
+    margin: 5px;
+    padding: 20px;
+    background: rgba(0,0,0,.55);
+    top: 0;
+    right: 0;
+    left: 0;
+}
 .anli-item img{
     width:100%;
 }
@@ -136,4 +147,12 @@ nav.leftnav a.active{
 
 .btn-default{
     border-width: 2px;
+}
+
+#ewm{
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    top: 0;
+    height: 100%;
 }
