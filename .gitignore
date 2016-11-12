@@ -1,2 +1,4 @@
 /skin/qsmt/libs
 /.idea
+/dist
+/node_modules
