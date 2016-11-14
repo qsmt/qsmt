@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="qsmt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,47 +8,51 @@
     <title>青色麦田科技有限公司</title>
     <link rel="shortcut icon" type="image/png" href="images/logo.png">
     <style>
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak {
             display: none !important;
         }
     </style>
     <!--<base href="/">-->
 </head>
+
 <body ng-cloak>
-<nav class="navbar navbar-inverse navbar-fixed-top2">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar"
-                    ng-click="showdropdown = !showdropdown">
+    <nav class="navbar navbar-inverse navbar-fixed-top2">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" ng-click="showdropdown = !showdropdown">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand">
-                <span><img src="images/logo.png"></span>
-                青色麦田
-            </a>
+                <a class="navbar-brand">
+                    <span><img src="images/logo.png"></span> 青色麦田
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse" ng-class="{in:showdropdown}">
+                <ul class="nav navbar-nav navbar-right" ng-click="showdropdown = false"  style="transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;">
+                    <li ui-sref-active="active"><a ui-sref="index">首页</a></li>
+                    <li ui-sref-active="active"><a ui-sref="about">关于我们</a></li>
+                    <li ui-sref-active="active"><a ui-sref="portfolio">成功案例</a></li>
+                    <li ui-sref-active="active"><a ui-sref="solution">解决方案</a></li>
+                    <li ui-sref-active="active"><a ui-sref="partners">伙伴计划</a></li>
+                    <li ui-sref-active="active"><a ui-sref="career">加入我们</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
-        <div id="navbar" class="collapse navbar-collapse" ng-class="{in:showdropdown}">
-            <ul class="nav navbar-nav navbar-right" ng-click="showdropdown = false">
-                <li ui-sref-active="active"><a ui-sref="index">首页</a></li>
-                <li ui-sref-active="active"><a ui-sref="about">关于我们</a></li>
-                <li ui-sref-active="active"><a ui-sref="portfolio">成功案例</a></li>
-                <li ui-sref-active="active"><a ui-sref="solution">解决方案</a></li>
-                <li ui-sref-active="active"><a ui-sref="partners">伙伴计划</a></li>
-                <li ui-sref-active="active"><a ui-sref="career">加入我们</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
+    </nav>
 
-<ui-view></ui-view>
-<div class="footer text-center">
-    E-mail: info@qsmttech.com 电话: 010-88579825/26.27/28/29
-    <br>
-    版权所有: 北京青色麦田科技有限公司&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn/">京ICP备16039554号-1</a>
-</div>
+    <ui-view></ui-view>
+    <div class="footer text-center">
+        E-mail: info@qsmttech.com 电话: 010-88579825/26.27/28/29
+        <br> 版权所有: 北京青色麦田科技有限公司&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn/">京ICP备16039554号-1</a>
+    </div>
 </body>
+
 </html>
