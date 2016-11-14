@@ -1,6 +1,8 @@
 (function() {
     'use strict';
 
+    require('./portfolio.directive.less');
+
     angular
         .module('qsmt')
         .directive('portfolioItem', portfolioItem);
@@ -13,22 +15,20 @@
         // Creates:
         //
         var directive = {
-            require: ['ngModel'],
             template: require('./portfolio.directive.html'),
             bindToController: true,
             controller: ControllerController,
             controllerAs: 'vm',
             link: link,
             restrict: 'AE',
-            scope: {}
+            scope: {
+                ngModel:'='
+            }
         };
         return directive;
 
-        function link(scope, element, attrs, controllers) {
-            var tabsCtrl = controllers[0];
-            console.log(tabsCtrl)
-            scope.model = tabsCtrl.$modelValue;
-            console.log(scope.model);
+        function link(scope, element, attrs) {
+
         }
     }
     /* @ngInject */

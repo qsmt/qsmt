@@ -22,3 +22,4 @@ angular.module('qsmt', dependancies);
 require('./config');
 require('./components');
 require('./directives');
+require('./filters');
