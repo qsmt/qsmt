@@ -7,7 +7,8 @@
     "build": "rimraf dist && webpack --bail --progress --profile",
     "server": "webpack-dev-server --history-api-fallback --inline --progress",
     "start": "npm run server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,8 @@
   "homepage": "https://github.com/shengoo/qsmt#readme",
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-touch": "^1.5.8",
     "angular-ui-bootstrap": "^2.2.0",
     "angular-ui-router": "^0.3.2",
     "bootstrap": "^3.3.7",
@@ -37,6 +40,7 @@
     "copy-webpack-plugin": "^4.0.0",
     "css-loader": "^0.25.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "gh-pages": "^0.11.0",
     "html-webpack-plugin": "^2.24.1",
     "json-loader": "^0.5.4",
     "less": "^2.7.1",
