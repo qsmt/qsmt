@@ -5,7 +5,7 @@
   "main": "src/index.html",
   "scripts": {
     "build": "rimraf dist && webpack --bail --progress --profile",
-    "server": "webpack-dev-server --history-api-fallback --inline --progress",
+    "server": "./node_modules/.bin/webpack-dev-server --history-api-fallback --inline --progress --port 9001",
     "start": "npm run server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gh-pages -d dist"
