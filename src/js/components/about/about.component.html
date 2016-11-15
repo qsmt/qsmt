@@ -2,11 +2,14 @@
     <img src="images/about/about.jpg" style="width: 100%;height: 20vw;">
 </div>
 <div class="container" style="padding: 20px 0;">
-    <nav class="leftnav col-xs-12 col-sm-2 container" style="padding-bottom: 20px;">
-        <div ng-repeat="item in $ctrl.data track by item.id" class="col-xs-3 col-sm-12 repeated-item">
-            <a href="javascript:void(0)" ng-click="$ctrl.select = item" ng-class="{active:item === $ctrl.select}">{{item.title}}</a>
-        </div>
-    </nav>
+    <div class="col-xs-12 col-sm-2 container">
+        <ul class="nav nav-pills qsmt-sub-nav">
+            <li ng-repeat="item in $ctrl.data track by item.id" class="col-xs-3 col-sm-12 repeated-item"
+                ng-class="{active:item === $ctrl.select}">
+                <a href="javascript:void(0)" ng-click="$ctrl.select = item">{{item.title}}</a>
+            </li>
+        </ul>
+    </div>
     <div class="col-xs-12 col-sm-10 container" style="text-indent: 20px;">
         <img ng-src="{{$ctrl.select.image}}" style="width: 100%;">
     </div>
