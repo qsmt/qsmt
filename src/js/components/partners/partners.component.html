@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="col-xs-12 col-sm-2 container">
+		<ul class="nav nav-pills qsmt-sub-nav">
+			<li ng-repeat="item in $ctrl.data track by item.id" class="col-xs-3 col-sm-12 repeated-item"
+				ng-class="{active:item === $ctrl.select}">
+				<a href="javascript:void(0)" ng-click="$ctrl.select = item">{{item.title}}</a>
+			</li>
+		</ul>
+	</div>
+	<div class="col-xs-12 col-sm-10 container">
+		<img ng-src="{{$ctrl.select.image}}" class="img-fullwidth">
+	</div>
+</div>

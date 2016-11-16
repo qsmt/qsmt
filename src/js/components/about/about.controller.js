@@ -17,7 +17,6 @@
 
     function AboutController($scope) {
         var vm = this;
-        this.t = 'hello';
         vm.data = [
             {
                 "id":1,
