@@ -200,7 +200,10 @@ module.exports = function makeWebpackConfig() {
             new CopyWebpackPlugin([{
                 from: 'src/images',
                 to: 'images'
-            }])
+            },{
+				from: 'api',
+				to:'api'
+			}])
         );
     }
 
