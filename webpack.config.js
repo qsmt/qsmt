@@ -171,13 +171,12 @@ module.exports = function makeWebpackConfig() {
         config.plugins.push(
             new HtmlWebpackPlugin({
                 template: './src/index.html',
-                chunks: ['app'],
                 inject: 'body'
             }),
 
             new HtmlWebpackPlugin({
+            	filename: 'admin.html',
                 template: './src/admin.html',
-                chunks: ['admin'],
                 inject: 'body'
             }),
 
