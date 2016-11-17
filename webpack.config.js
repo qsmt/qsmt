@@ -24,7 +24,8 @@ module.exports = function makeWebpackConfig() {
      * Karma will set this when it's a test build
      */
     config.entry = isTest ? {} : {
-        app: './src/js/app.js'
+        app: './src/js/app.js',
+        admin: './src/js/admin.js'
     };
 
     /**
@@ -87,6 +88,7 @@ module.exports = function makeWebpackConfig() {
             // LESS LOADER
             //Reference: https://www.npmjs.com/package/less-loader
             test: /\.less$/,
+            // loader: ExtractTextPlugin.extract({ loader: ['raw-loader', 'less-loader'] })
             loader: 'style!css!less'
             // }, {
             //     // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
@@ -169,6 +171,13 @@ module.exports = function makeWebpackConfig() {
         config.plugins.push(
             new HtmlWebpackPlugin({
                 template: './src/index.html',
+                chunks: ['app'],
+                inject: 'body'
+            }),
+
+            new HtmlWebpackPlugin({
+                template: './src/admin.html',
+                chunks: ['admin'],
                 inject: 'body'
             }),
 
@@ -200,10 +209,20 @@ module.exports = function makeWebpackConfig() {
             new CopyWebpackPlugin([{
                 from: 'src/images',
                 to: 'images'
-            },{
-				from: 'api',
-				to:'api'
-			}])
+            // },{
+				// from: 'api',
+				// to:'api'
+			}], {
+                ignore: [
+                    // Doesn't copy any files with a txt extension
+                    '*.phar',
+                ],
+
+                // By default, we only copy modified files during
+                // a watch or webpack-dev-server build. Setting this
+                // to `true` copies all files.
+                copyUnmodified: true
+            })
         );
     }
 
