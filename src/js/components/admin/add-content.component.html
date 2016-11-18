@@ -1,0 +1,15 @@
+<div class="row">
+	<form>
+		<div class="form-group">
+			<label for="inputTitle">标题</label>
+			<input ng-model="$ctrl.title" type="text" class="form-control" id="inputTitle" placeholder="标题">
+		</div>
+		<div class="form-group">
+			<label for="inputContent">内容</label>
+			<!--<textarea id="inputContent" class="form-control" rows="10"></textarea>-->
+			<div id="toolbar"></div>
+			<div class="editor"></div>
+		</div>
+		<button type="submit" class="btn btn-default" ng-click="$ctrl.submit()">Submit</button>
+	</form>
+</div>

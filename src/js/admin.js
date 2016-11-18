@@ -62,6 +62,19 @@ angular.module('admin', dependancies)
         // });
     }]);
 
+
+angular.module('admin')
+	.config(config);
+
+config.$inject = ['$urlRouterProvider','$locationProvider','$sceProvider'];
+
+function config($urlRouterProvider,$locationProvider,$sceProvider) {
+	$urlRouterProvider.otherwise('/');
+	// $locationProvider.html5Mode(true)
+	$sceProvider.enabled(false);
+}
+require('./components/admin');
+
 // require('./config');
 // require('./components');
 // require('./directives');

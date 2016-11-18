@@ -4,14 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <title>admin</title>
+	<link rel="shortcut icon" type="image/png" href="images/logo.png">
+	<link rel="apple-touch-icon-precomposed" href="images/logo.png">
+	<style>
+		[ng\:cloak],
+		[ng-cloak],
+		[data-ng-cloak],
+		[x-ng-cloak],
+		.ng-cloak,
+		.x-ng-cloak {
+			display: none !important;
+		}
+	</style>
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.js"></script>
+	<!-- Theme included stylesheets -->
+	<link href="//cdn.quilljs.com/1.1.5/quill.snow.css" rel="stylesheet">
+	<link href="//cdn.quilljs.com/1.1.5/quill.bubble.css" rel="stylesheet">
+
+	<!-- Main Quill library -->
+	<script src="//cdn.quilljs.com/1.1.5/quill.min.js"></script>
+
+	<!-- Core build with no theme, formatting, non-essential modules -->
+	<!--<link href="//cdn.quilljs.com/1.1.5/quill.core.css" rel="stylesheet">-->
+	<!--<script src="//cdn.quilljs.com/1.1.5/quill.core.js"></script>-->
 </head>
 
-<body ng-controller="AdminController">
-    <h1>admin.</h1>
-    <pre>{{data2 | json }}</pre>
-    <div ng-repeat="item in data">
-        {{item}}
-    </div>
+<body ng-cloak>
+	<admin></admin>
 </body>
 
 </html>
