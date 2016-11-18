@@ -50,7 +50,7 @@ module.exports = function makeWebpackConfig() {
         // Filename for non-entry points
         // Only adds hash in build mode
         chunkFilename: isProd ? '[name].[hash].js' : '[name].bundle.js'
-        // chunkFilename: '[name].bundle.js'
+            // chunkFilename: '[name].bundle.js'
     };
 
     /**
@@ -77,58 +77,59 @@ module.exports = function makeWebpackConfig() {
     config.module = {
         preLoaders: [],
         loaders: [{
-            // JS LOADER
-            // Reference: https://github.com/babel/babel-loader
-            // Transpile .js files using babel-loader
-            // Compiles ES6 and ES7 into ES5 code
-            test: /\.js$/,
-            loader: 'babel',
-            exclude: /node_modules/
-        }, {
-            // LESS LOADER
-            //Reference: https://www.npmjs.com/package/less-loader
-            test: /\.less$/,
-            // loader: ExtractTextPlugin.extract({ loader: ['raw-loader', 'less-loader'] })
-            loader: 'style!css!less'
-            // }, {
-            //     // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-            //     test: /\.tsx?$/,
-            //     loader: 'ts'
-            // }, {
-            //     // CSS LOADER
-            //     // Reference: https://github.com/webpack/css-loader
-            //     // Allow loading css through js
-            //     //
-            //     // Reference: https://github.com/postcss/postcss-loader
-            //     // Postprocess your css with PostCSS plugins
-            //     test: /\.css$/,
-            //     // Reference: https://github.com/webpack/extract-text-webpack-plugin
-            //     // Extract css files in production builds
-            //     //
-            //     // Reference: https://github.com/webpack/style-loader
-            //     // Use style-loader in development.
-            //     loader: isTest ? 'null' : ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
-        }, {
-            // ASSET LOADER
-            // Reference: https://github.com/webpack/file-loader
-            // Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
-            // Rename the file using the asset hash
-            // Pass along the updated reference to your code
-            // You can add here any file extension you want to get copied to your output
-            test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-            loader: 'url'
-        }, {
-            // HTML LOADER
-            // Reference: https://github.com/webpack/raw-loader
-            // Allow loading html through js
-            test: /\.html$/,
-            loader: 'raw'
-        },
+                // JS LOADER
+                // Reference: https://github.com/babel/babel-loader
+                // Transpile .js files using babel-loader
+                // Compiles ES6 and ES7 into ES5 code
+                test: /\.js$/,
+                loader: 'babel',
+                exclude: /node_modules/
+            }, {
+                // LESS LOADER
+                //Reference: https://www.npmjs.com/package/less-loader
+                test: /\.less$/,
+                // loader: ExtractTextPlugin.extract({ loader: ['raw-loader', 'less-loader'] })
+                loader: 'style!css!less'
+                    // }, {
+                    //     // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+                    //     test: /\.tsx?$/,
+                    //     loader: 'ts'
+                    // }, {
+                    //     // CSS LOADER
+                    //     // Reference: https://github.com/webpack/css-loader
+                    //     // Allow loading css through js
+                    //     //
+                    //     // Reference: https://github.com/postcss/postcss-loader
+                    //     // Postprocess your css with PostCSS plugins
+                    //     test: /\.css$/,
+                    //     // Reference: https://github.com/webpack/extract-text-webpack-plugin
+                    //     // Extract css files in production builds
+                    //     //
+                    //     // Reference: https://github.com/webpack/style-loader
+                    //     // Use style-loader in development.
+                    //     loader: isTest ? 'null' : ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
+            }, {
+                // ASSET LOADER
+                // Reference: https://github.com/webpack/file-loader
+                // Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
+                // Rename the file using the asset hash
+                // Pass along the updated reference to your code
+                // You can add here any file extension you want to get copied to your output
+                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+                loader: 'url'
+            }, {
+                // HTML LOADER
+                // Reference: https://github.com/webpack/raw-loader
+                // Allow loading html through js
+                test: /\.html$/,
+                loader: 'raw'
+            },
             {
 
                 test: /\.json$/,
                 loader: 'json'
-            }]
+            }
+        ]
     };
 
     // ISPARTA LOADER
@@ -171,12 +172,14 @@ module.exports = function makeWebpackConfig() {
         config.plugins.push(
             new HtmlWebpackPlugin({
                 template: './src/index.html',
+                chunks: ['app'],
                 inject: 'body'
             }),
 
             new HtmlWebpackPlugin({
-            	filename: 'admin.html',
+                filename: 'admin.html',
                 template: './src/admin.html',
+                chunks: ['admin'],
                 inject: 'body'
             }),
 
@@ -184,7 +187,7 @@ module.exports = function makeWebpackConfig() {
             // Extract css files
             // Disabled when in test mode or not in build mode
             // [name].[hash].css
-            new ExtractTextPlugin('[name].[hash].css', {disable: !isProd})
+            new ExtractTextPlugin('[name].[hash].css', { disable: !isProd })
         );
     }
 
@@ -208,12 +211,12 @@ module.exports = function makeWebpackConfig() {
             new CopyWebpackPlugin([{
                 from: 'src/images',
                 to: 'images'
-            // },{
-				// from: 'api',
-				// to:'api'
-			}], {
+                    // },{
+                    // from: 'api',
+                    // to:'api'
+            }], {
                 ignore: [
-                    // Doesn't copy any files with a txt extension
+                    // Doesn't copy composer
                     '*.phar',
                 ],
 
