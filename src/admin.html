@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="admin">
+
 <head>
     <meta charset="UTF-8">
     <title>admin</title>
 </head>
-<body>
-<h1>admin.</h1>
+
+<body ng-controller="AdminController">
+    <h1>admin.</h1>
+    <pre>{{data2 | json }}</pre>
+    <div ng-repeat="item in data">
+        {{item}}
+    </div>
 </body>
+
 </html>
