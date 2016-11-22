@@ -2,9 +2,9 @@
     'use strict';
 
     // Usage:
-    // 
+    //
     // Creates:
-    // 
+    //
 
     angular
         .module('qsmt')
@@ -26,15 +26,14 @@
 
         }]);
 
-    PortfolioController.$inject = ['$scope'];
+    PortfolioController.$inject = ['$scope', '$http'];
 
-    function PortfolioController($scope) {
+    function PortfolioController($scope, $http) {
         var $ctrl = this;
         $ctrl.page = 0;
         $ctrl.pagesize = 6;
 
-        $ctrl.portfolios = [
-            {
+        $ctrl.portfolios = [{
             id: 1,
             image: 'images/portfolio/1.jpg'
         }, {
@@ -54,16 +53,34 @@
             image: 'images/portfolio/6.jpg'
         }];
 
-        $ctrl.totalpage = $ctrl.portfolios.length / $ctrl.pagesize;
 
-        $ctrl.pages = []
-        for(var i = 0 ;i<$ctrl.totalpage;i++){
-            $ctrl.pages.push(i+1);
+
+        function updatePages() {
+            $ctrl.totalpage = $ctrl.total / $ctrl.pagesize;
+
+            $ctrl.pages = []
+            for (var i = 0; i < $ctrl.totalpage; i++) {
+                $ctrl.pages.push(i + 1);
+            }
         }
 
         ////////////////
 
-        $ctrl.$onInit = function() {};
+        $ctrl.$onInit = function() {
+
+            $http.get('http://sheng00.com/wp-json/wp/v2/posts?per_page=6').then(
+                function(response) {
+                    console.log(response);
+                    console.log(response.headers('X-WP-Total'));
+                    $ctrl.portfolios = response.data;
+                    $ctrl.total = response.headers('X-WP-Total');
+                    updatePages();
+                },
+                function(error) {
+                    console.log(error);
+                }
+            )
+        };
         $ctrl.$onChanges = function(changesObj) {};
         $ctrl.$onDestory = function() {};
     }
