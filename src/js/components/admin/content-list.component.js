@@ -43,7 +43,7 @@ console.log($stateParams)
 					$ctrl.data.push(angular.extend(response.data[key],{key:key}));
 				}
 				console.log($ctrl.data);
-				$ctrl.loading = false;
+				// $ctrl.loading = false;
 			}, function(error) {
 				console.log(error);
 			});
