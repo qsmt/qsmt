@@ -23,3 +23,4 @@ require('./config');
 require('./components');
 require('./directives');
 require('./filters');
+require('./services');

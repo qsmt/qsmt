@@ -26,37 +26,20 @@
 
         }]);
 
-    PortfolioController.$inject = ['$scope', '$http'];
+    PortfolioController.$inject = ['$scope', 'ContentService'];
 
-    function PortfolioController($scope, $http) {
+    function PortfolioController($scope, ContentService) {
         var $ctrl = this;
         $ctrl.page = 0;
         $ctrl.pagesize = 6;
+		$ctrl.loading = true;
 
-        $ctrl.portfolios = [{
-            id: 1,
-            image: 'images/portfolio/1.jpg'
-        }, {
-            id: 2,
-            image: 'images/portfolio/2.jpg'
-        }, {
-            id: 3,
-            image: 'images/portfolio/3.jpg'
-        }, {
-            id: 4,
-            image: 'images/portfolio/4.jpg'
-        }, {
-            id: 5,
-            image: 'images/portfolio/5.jpg'
-        }, {
-            id: 6,
-            image: 'images/portfolio/6.jpg'
-        }];
+
 
 
 
         function updatePages() {
-            $ctrl.totalpage = $ctrl.total / $ctrl.pagesize;
+            $ctrl.totalpage = $ctrl.portfolios.length / $ctrl.pagesize;
 
             $ctrl.pages = []
             for (var i = 0; i < $ctrl.totalpage; i++) {
@@ -68,18 +51,12 @@
 
         $ctrl.$onInit = function() {
 
-            $http.get('http://sheng00.com/wp-json/wp/v2/posts?per_page=6').then(
-                function(response) {
-                    console.log(response);
-                    console.log(response.headers('X-WP-Total'));
-                    $ctrl.portfolios = response.data;
-                    $ctrl.total = response.headers('X-WP-Total');
-                    updatePages();
-                },
-                function(error) {
-                    console.log(error);
-                }
-            )
+            ContentService.getContent(3).success(function (data) {
+				console.log(data)
+				$ctrl.portfolios = data;
+				updatePages();
+				$ctrl.loading = false;
+			})
         };
         $ctrl.$onChanges = function(changesObj) {};
         $ctrl.$onDestory = function() {};

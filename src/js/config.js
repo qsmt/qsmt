@@ -5,11 +5,12 @@
     angular.module('qsmt')
         .config(config);
 
-    config.$inject = ['$urlRouterProvider','$locationProvider'];
+    config.$inject = ['$urlRouterProvider','$sceProvider'];
 
-    function config($urlRouterProvider,$locationProvider) {
+    function config($urlRouterProvider,$sceProvider) {
         $urlRouterProvider.otherwise('/');
         // $locationProvider.html5Mode(true)
+		$sceProvider.enabled(false);
     }
 
 })();

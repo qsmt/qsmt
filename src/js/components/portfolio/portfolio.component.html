@@ -1,5 +1,6 @@
-<div class="container" style="padding: 20px 0;">
+<div class="container loading-container" style="padding: 20px 0;min-height: 400px;">
     <div portfolio-item ng-repeat="item in $ctrl.portfolios | pagination:$ctrl.page:$ctrl.pagesize track by item.id" ng-model="item"></div>
+	<div class="loading" ng-show="$ctrl.loading"></div>
 </div>
 <nav aria-label="Page navigation" class="text-center">
     <ul class="pagination">

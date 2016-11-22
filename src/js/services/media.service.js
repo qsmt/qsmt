@@ -13,7 +13,7 @@
         ////////////////
 
         function getImageUrl(mediaId) {
-            return $http.get('/wp-json/wp/v2/media/1505').source_url;
+            return $http.get('http://www.qsmttech.com/wp-json/wp/v2/media/' + mediaId)//.source_url;
         }
     }
 })();

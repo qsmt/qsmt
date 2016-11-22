@@ -13,33 +13,21 @@
     angular.module('qsmt')
         .controller('AboutController',AboutController);
 
-    AboutController.$inject = ['$scope']
+    AboutController.$inject = ['$scope','ContentService']
 
-    function AboutController($scope) {
+    function AboutController($scope,ContentService) {
         var vm = this;
-        vm.data = [
-            {
-                "id":1,
-                "title":"公司简介",
-                "image":"images/about/1.jpg"
-            },
-            {
-                "id":2,
-                "title":"资质荣誉",
-                "image":"images/about/2.png"
-            },
-            {
-                "id":3,
-                "title":"专注领域",
-                "image":"images/about/3.jpg"
-            },
-            {
-                "id":4,
-                "title":"优势价值",
-                "image":"images/about/4.png"
-            }
-        ];
-        vm.select = vm.data[0];
+        vm.loading = true;
+
+        ContentService.getContent(2).success(function (response) {
+			console.log(response);
+			vm.data = response;
+			vm.select = vm.data[0];
+			vm.loading = false;
+		}).error(function (error) {
+			console.log(error);
+		});
+
     }
 
 })();
