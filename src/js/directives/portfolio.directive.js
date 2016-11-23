@@ -22,7 +22,7 @@
             link: link,
             restrict: 'AE',
             scope: {
-                ngModel:'='
+                ngModel: '='
             }
         };
         return directive;
@@ -32,16 +32,16 @@
         }
     }
 
-	ControllerController.inject = ['MediaService'];
+    ControllerController.inject = ['MediaService'];
 
     /* @ngInject */
     function ControllerController(MediaService) {
-    	var vm = this;
-		if(vm.ngModel.featured_media){
-			MediaService.getImageUrl(vm.ngModel.featured_media).success(function (data) {
-				console.log(data);
-				vm.ngModel.imageSrc = data.source_url;
-			})
-		}
+        var vm = this;
+        if (vm.ngModel.featured_media) {
+            MediaService.getImageUrl(vm.ngModel.featured_media).success(function(data) {
+                console.log(data);
+                vm.ngModel.imageSrc = data.source_url;
+            })
+        }
     }
 })();
