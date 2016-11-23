@@ -14,16 +14,18 @@
 
         ////////////////
 
-        function paginationFilterFilter(input,page,pagesize) {
-            if(!input){
+
+        // page start from 1
+        function paginationFilterFilter(input, page, pagesize) {
+            if (!input) {
                 return input;
             }
-            if(page < 0 || pagesize < 0){
+            if (page < 1 || pagesize < 0) {
                 return [];
             }
-            var start = page * pagesize;
-            var end = (page+1)*pagesize;
-            return input.slice(start,end);
+            var start = (page - 1) * pagesize;
+            var end = page * pagesize;
+            return input.slice(start, end);
         }
     }
 })();

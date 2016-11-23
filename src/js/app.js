@@ -24,3 +24,17 @@ require('./components');
 require('./directives');
 require('./filters');
 require('./services');
+angular.module('qsmt').run(run);
+
+run.$inject = ['uibPaginationConfig'];
+
+function run(uibPaginationConfig) {
+	console.log('run');
+    //display First / Last buttons
+    uibPaginationConfig.boundaryLinks = true;
+    uibPaginationConfig.firstText = '第一页';
+    uibPaginationConfig.previousText = '上一页';
+    uibPaginationConfig.nextText = '下一页';
+    uibPaginationConfig.lastText = '最后一页';
+
+}

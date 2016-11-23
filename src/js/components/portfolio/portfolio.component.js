@@ -26,37 +26,45 @@
 
         }]);
 
-    PortfolioController.$inject = ['$scope', 'ContentService'];
+    PortfolioController.$inject = ['$scope', 'postsService'];
 
-    function PortfolioController($scope, ContentService) {
+    function PortfolioController($scope, postsService) {
         var $ctrl = this;
-        $ctrl.page = 0;
+        $ctrl.currentPage = 1;
         $ctrl.pagesize = 6;
-		$ctrl.loading = true;
+        $ctrl.loading = true;
+        updateData();
 
-
-
+        // $scope.$watch('$ctrl.currentPage', function(val) {
+        //     console.log(val)
+        //     if (val) {
+        //         updateData();
+        //     }
+        // })
 
 
         function updatePages() {
-            $ctrl.totalpage = $ctrl.portfolios.length / $ctrl.pagesize;
+            $ctrl.totalpage = $ctrl.totalItems / $ctrl.pagesize;
+        }
 
-            $ctrl.pages = []
-            for (var i = 0; i < $ctrl.totalpage; i++) {
-                $ctrl.pages.push(i + 1);
-            }
+        function updateData() {
+            $ctrl.loading = true;
+            postsService.getPostsPaging(3, $ctrl.currentPage, $ctrl.pagesize).then(function(response) {
+                $ctrl.totalItems = response.headers('X-WP-Total');
+                $ctrl.portfolios = response.data;
+                updatePages();
+                $ctrl.loading = false;
+            })
+        }
+
+        $ctrl.pageChanged = function() {
+            updateData();
         }
 
         ////////////////
 
         $ctrl.$onInit = function() {
 
-            ContentService.getContent(3).success(function (data) {
-				console.log(data)
-				$ctrl.portfolios = data;
-				updatePages();
-				$ctrl.loading = false;
-			})
         };
         $ctrl.$onChanges = function(changesObj) {};
         $ctrl.$onDestory = function() {};

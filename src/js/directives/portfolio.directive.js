@@ -39,9 +39,10 @@
         var vm = this;
         if (vm.ngModel.featured_media) {
             MediaService.getImageUrl(vm.ngModel.featured_media).success(function(data) {
-                console.log(data);
                 vm.ngModel.imageSrc = data.source_url;
             })
-        }
+        }else{
+			vm.ngModel.imageSrc = 'images/no-image-box.png';
+		}
     }
 })();
