@@ -24,8 +24,7 @@ module.exports = function makeWebpackConfig() {
      * Karma will set this when it's a test build
      */
     config.entry = isTest ? {} : {
-        app: './src/js/app.js',
-        admin: './src/js/admin.js'
+        app: './src/js/app.js'
     };
 
     /**
@@ -176,12 +175,6 @@ module.exports = function makeWebpackConfig() {
                 inject: 'body'
             }),
 
-            new HtmlWebpackPlugin({
-                filename: 'admin.html',
-                template: './src/admin.html',
-                chunks: ['admin'],
-                inject: 'body'
-            }),
 
             // Reference: https://github.com/webpack/extract-text-webpack-plugin
             // Extract css files
