@@ -29,7 +29,7 @@
     CareerController.$inject = ['postsService'];
 
     function CareerController(postsService) {
-        var categoryId = 5;
+        var categoryId = 6;
         var $ctrl = this;
         $ctrl.loading = true;
 
