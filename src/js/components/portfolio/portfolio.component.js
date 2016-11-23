@@ -29,18 +29,11 @@
     PortfolioController.$inject = ['$scope', 'postsService'];
 
     function PortfolioController($scope, postsService) {
+        var categoryId = 3;
         var $ctrl = this;
         $ctrl.currentPage = 1;
         $ctrl.pagesize = 6;
         $ctrl.loading = true;
-        updateData();
-
-        // $scope.$watch('$ctrl.currentPage', function(val) {
-        //     console.log(val)
-        //     if (val) {
-        //         updateData();
-        //     }
-        // })
 
 
         function updatePages() {
@@ -49,7 +42,7 @@
 
         function updateData() {
             $ctrl.loading = true;
-            postsService.getPostsPaging(3, $ctrl.currentPage, $ctrl.pagesize).then(function(response) {
+            postsService.getPostsPaging(categoryId, $ctrl.currentPage, $ctrl.pagesize).then(function(response) {
                 $ctrl.totalItems = response.headers('X-WP-Total');
                 $ctrl.portfolios = response.data;
                 updatePages();
@@ -64,7 +57,7 @@
         ////////////////
 
         $ctrl.$onInit = function() {
-
+            updateData();
         };
         $ctrl.$onChanges = function(changesObj) {};
         $ctrl.$onDestory = function() {};

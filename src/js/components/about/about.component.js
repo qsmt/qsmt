@@ -7,7 +7,7 @@
  */
 
 
-(function () {
+(function() {
     'use strict';
 
     angular.module('qsmt')
@@ -15,7 +15,7 @@
             template: require('./about.component.html'),
             controller: 'AboutController'
         })
-        .config(['$stateProvider', function ($stateProvider) {
+        .config(['$stateProvider', function($stateProvider) {
             const about = {
                 name: 'about',
                 url: '/about',

@@ -7,26 +7,27 @@
  */
 
 
-(function () {
+(function() {
     'use strict';
 
     angular.module('qsmt')
-        .controller('AboutController',AboutController);
+        .controller('AboutController', AboutController);
 
-    AboutController.$inject = ['$scope','ContentService']
+    AboutController.$inject = ['$scope', 'postsService']
 
-    function AboutController($scope,ContentService) {
+    function AboutController($scope, postsService) {
+        var categoryId = 2;
         var vm = this;
         vm.loading = true;
 
-        ContentService.getContent(2).success(function (response) {
-			console.log(response);
-			vm.data = response;
-			vm.select = vm.data[0];
-			vm.loading = false;
-		}).error(function (error) {
-			console.log(error);
-		});
+        postsService.getPostsPaging(categoryId, 1, 100).success(function(data) {
+            console.log(data);
+            vm.data = data;
+            vm.select = vm.data[0];
+            vm.loading = false;
+        }).error(function(error) {
+            console.log(error);
+        });
 
     }
 

@@ -1,20 +1,9 @@
-<div class="container">
-    <solution ng-repeat="item in $ctrl.solutions | pagination:$ctrl.page:$ctrl.pagesize track by item.id" ng-model="item"></solution>
+<div class="loading-container">
+    <div class="container">
+        <solution ng-repeat="item in $ctrl.data track by item.id" ng-model="item"></solution>
+    </div>
+    <nav class="row text-center">
+        <ul uib-pagination total-items="$ctrl.totalItems" items-per-page="$ctrl.pagesize" ng-model="$ctrl.currentPage" ng-change="$ctrl.pageChanged()"></ul>
+    </nav>
+    <div class="loading" ng-show="$ctrl.loading"></div>
 </div>
-<nav aria-label="Page navigation" class="text-center">
-    <ul class="pagination">
-        <li ng-class="{disabled:$ctrl.page === 0}">
-            <a ng-click="$ctrl.page !== 0 ? $ctrl.page = $ctrl.page - 1 : $ctrl.page = $ctrl.page" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <li ng-repeat="page in $ctrl.pages" ng-class="{active:$ctrl.page + 1 === page}">
-            <a ng-click="$ctrl.page = page - 1">{{page}}</a>
-        </li>
-        <li ng-class="{disabled:$ctrl.page + 1 === $ctrl.totalpage}">
-            <a ng-click="$ctrl.page + 1 !== $ctrl.totalpage ? $ctrl.page = $ctrl.page + 1 : $ctrl.page = $ctrl.page" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    </ul>
-</nav>

@@ -7,7 +7,7 @@
  */
 
 
-(function () {
+(function() {
     'use strict';
 
     angular
@@ -26,31 +26,41 @@
 
         }]);
 
-    SolutionsController.$inject = [];
+    SolutionsController.$inject = ['postsService'];
 
-    function SolutionsController() {
+    function SolutionsController(postsService) {
+        var categoryId = 4;
         var $ctrl = this;
-        $ctrl.page = 0;
-        $ctrl.pagesize = 1;
+        $ctrl.currentPage = 1;
+        $ctrl.pagesize = 10;
+        $ctrl.loading = true;
 
-        $ctrl.solutions = [
-            {
-                id: 1,
-                image: 'images/solutions/1.jpg'
-            }, {
-                id: 2,
-                image: 'images/solutions/2.jpg'
-            }, {
-                id: 3,
-                image: 'images/solutions/3.jpg'
-            }];
-
-        $ctrl.totalpage = $ctrl.solutions.length / $ctrl.pagesize;
-
-        $ctrl.pages = []
-        for(var i = 0 ;i<$ctrl.totalpage;i++){
-            $ctrl.pages.push(i+1);
+        function updatePages() {
+            $ctrl.totalpage = $ctrl.totalItems / $ctrl.pagesize;
         }
+
+        function updateData() {
+            $ctrl.loading = true;
+            postsService.getPostsPaging(categoryId, $ctrl.currentPage, $ctrl.pagesize)
+                .then(function(response) {
+                    $ctrl.totalItems = response.headers('X-WP-Total');
+                    $ctrl.data = response.data;
+                    updatePages();
+                    $ctrl.loading = false;
+                })
+        }
+
+        $ctrl.pageChanged = function() {
+            updateData();
+        }
+
+
+        $ctrl.$onInit = function() {
+            updateData();
+        };
+        $ctrl.$onChanges = function(changesObj) {};
+        $ctrl.$onDestory = function() {};
+
     }
 
 })();
