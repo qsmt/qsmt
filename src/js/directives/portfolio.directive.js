@@ -32,7 +32,7 @@
         }
     }
 
-    ControllerController.inject = ['MediaService'];
+    ControllerController.$inject = ['MediaService'];
 
     /* @ngInject */
     function ControllerController(MediaService) {
