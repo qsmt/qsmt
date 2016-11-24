@@ -2,7 +2,7 @@
     <div class="container">
         <solution ng-repeat="item in $ctrl.data track by item.id" ng-model="item"></solution>
     </div>
-    <nav class="row text-center">
+    <nav class="text-center">
         <ul uib-pagination total-items="$ctrl.totalItems" items-per-page="$ctrl.pagesize" ng-model="$ctrl.currentPage" ng-change="$ctrl.pageChanged()"></ul>
     </nav>
     <div class="loading" ng-show="$ctrl.loading"></div>
