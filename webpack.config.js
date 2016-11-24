@@ -88,7 +88,8 @@ module.exports = function makeWebpackConfig() {
                 //Reference: https://www.npmjs.com/package/less-loader
                 test: /\.less$/,
                 // loader: ExtractTextPlugin.extract({ loader: ['raw-loader', 'less-loader'] })
-                loader: 'style!css!less'
+                // loader: 'style!css!less'
+                loader: ExtractTextPlugin.extract('style', 'css!less')
                     // }, {
                     //     // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
                     //     test: /\.tsx?$/,
