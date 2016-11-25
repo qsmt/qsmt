@@ -1,14 +1,15 @@
+@import "variable";
 @import "sub-nav.less";
 @import 'lib-override.less';
 @import "index";
 
-.test{
+.test {
 	display: flex;
 }
 
 .loading-container {
 	position: relative;
-	min-height:200px;
+	min-height: 200px;
 }
 
 .loading {
@@ -101,7 +102,7 @@ img {
 }
 
 .service-item-title {
-	color: #226AC8;
+	color: @blue;
 	text-align: center;
 	font-size: 1.5em;
 }
@@ -127,21 +128,21 @@ img {
 	top: 8px;
 }
 
-.about li {
-	list-style: none;
-	position: relative;
-	margin: 10px auto;
-}
-
-.about li::before {
-	content: ' ';
-	width: 12px;
-	height: 12px;
-	position: absolute;
-	background: #1F5EA8;
-	left: -20px;
-	top: 4px;
-}
+//.about li {
+//	list-style: none;
+//	position: relative;
+//	margin: 10px auto;
+//}
+//
+//.about li::before {
+//	content: ' ';
+//	width: 12px;
+//	height: 12px;
+//	position: absolute;
+//	background: #1F5EA8;
+//	left: -20px;
+//	top: 4px;
+//}
 
 .footer {
 	position: relative;
@@ -201,3 +202,8 @@ img {
 .img-fullwidth {
 	width: 100%;
 }
+
+ul {
+	list-style-image: url('../images/sqblue.png');
+}
+
