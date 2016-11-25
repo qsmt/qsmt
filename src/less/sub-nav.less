@@ -1,4 +1,5 @@
 .qsmt-sub-nav {
+	margin-top: 30px;
 	li {
 		padding: 0;
 		float: none;
@@ -7,10 +8,7 @@
 			margin-bottom: 5px;
 		}
 	}
-}
-
-@media (max-width: 768px) {
-	.qsmt-sub-nav {
+	@media (max-width: (@screen-tablet - 1)) {
 		width: 100%;
 		li {
 			display: table-cell;
@@ -21,5 +19,8 @@
 				padding-right: 0;
 			}
 		}
+
 	}
 }
+
+
