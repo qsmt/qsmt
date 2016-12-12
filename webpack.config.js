@@ -4,6 +4,7 @@ let HtmlWebpackPlugin = require('html-webpack-plugin');
 // inject bundle.css into html
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let CopyWebpackPlugin = require('copy-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 
 let ENV = process.env.npm_lifecycle_event;
 let isTest = ENV === 'test' || ENV === 'test-watch';
@@ -89,7 +90,7 @@ module.exports = function makeWebpackConfig() {
                 test: /\.less$/,
                 // loader: ExtractTextPlugin.extract({ loader: ['raw-loader', 'less-loader'] })
                 // loader: 'style!css!less'
-                loader: ExtractTextPlugin.extract('style', 'css!less')
+                loader: ExtractTextPlugin.extract('style', 'css!postcss!less')
                     // }, {
                     //     // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
                     //     test: /\.tsx?$/,
@@ -152,11 +153,11 @@ module.exports = function makeWebpackConfig() {
      * Reference: https://github.com/postcss/autoprefixer-core
      * Add vendor prefixes to your css
      */
-    // config.postcss = [
-    //     autoprefixer({
-    //         browsers: ['last 2 version']
-    //     })
-    // ];
+    config.postcss = [
+        autoprefixer({
+            browsers: ['> 5%']
+        })
+    ];
 
     /**
      * Plugins
