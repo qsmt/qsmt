@@ -29,7 +29,7 @@ angular.module('qsmt').run(run);
 run.$inject = ['uibPaginationConfig'];
 
 function run(uibPaginationConfig) {
-	console.log('run');
+    console.log('run');
     //display First / Last buttons
     uibPaginationConfig.boundaryLinks = true;
     uibPaginationConfig.firstText = '第一页';
