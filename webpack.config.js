@@ -5,26 +5,23 @@ let CopyWebpackPlugin = require('copy-webpack-plugin');
 let autoprefixer = require('autoprefixer');
 
 let ENV = process.env.npm_lifecycle_event;
-let isTest = ENV === 'test' || ENV === 'test-watch';
 let isProd = ENV === 'build';
 
 module.exports = function makeWebpackConfig() {
 
 	var config = {};
 
-	config.entry = isTest ? {} : {
-			app: './src/js/app.js'
-		};
+	config.entry = {
+		app: './src/js/app.js'
+	};
 
-	config.output = isTest ? {} : {
-			path: __dirname + '/dist',
-			publicPath: '',
-			filename: isProd ? '[name].[hash].js' : '[name].bundle.js',
-		};
+	config.output = {
+		path: __dirname + '/dist',
+		publicPath: '',
+		filename: isProd ? '[name].[hash].js' : '[name].bundle.js',
+	};
 
-	if (isTest) {
-		config.devtool = 'inline-source-map';
-	} else if (isProd) {
+	if (isProd) {
 		config.devtool = 'source-map';
 	} else {
 		config.devtool = 'eval-source-map';
@@ -33,11 +30,8 @@ module.exports = function makeWebpackConfig() {
 	config.module = {
 		rules: [{
 			test: /\.js?$/,
-			loader: 'babel-loader',
 			exclude: /node_modules/,
-			options: {
-				presets: ["react"]
-			},
+			loader: 'babel-loader',
 		}, {
 			test: /\.less$/,
 			loader: ExtractTextPlugin.extract({
@@ -71,20 +65,25 @@ module.exports = function makeWebpackConfig() {
 
 	config.plugins = [];
 
-	if (!isTest) {
-		config.plugins.push(
-			new HtmlWebpackPlugin({
-				template: './src/index.html',
-				inject: 'body'
-			}),
 
-			new ExtractTextPlugin({filename: '[name].[hash].css', disable: !isProd})
-		);
-	}
+	config.plugins.push(
+		new HtmlWebpackPlugin({
+			template: './src/index.html',
+			inject: 'body'
+		}),
+
+		new ExtractTextPlugin({filename: '[name].[hash].css', disable: !isProd})
+	);
+
 
 	if (isProd) {
 		config.plugins.push(
-			new webpack.NoErrorsPlugin(),
+			new webpack.DefinePlugin({
+				'process.env': {
+					NODE_ENV: JSON.stringify('production')
+				}
+			}),
+			new webpack.NoEmitOnErrorsPlugin(),
 			new webpack.optimize.UglifyJsPlugin(),
 			new CopyWebpackPlugin([{
 				from: 'src/images',
