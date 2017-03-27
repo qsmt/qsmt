@@ -1,8 +1,9 @@
 
-import React from 'react';
+import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-
+// import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router'
 import {Navbar,Nav,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
+import {BrowserRouter, Link,Route} from 'react-router-dom';
 
 import 'bootstrap/less/bootstrap.less';
 import '../less/style.less';
@@ -32,9 +33,45 @@ const navbarInstance = (
 		</Navbar.Collapse>
 	</Navbar>
 );
+class App extends Component {
+	render() {
+		return <div>App</div>;
+	}
+}
+class Home extends Component {
+	render() {
+		return <div>Home</div>;
+	}
+}
+class About extends Component {
+	render() {
+		return <div>About</div>;
+	}
+}
+class Inbox extends Component {
+	render() {
+		return <div>Inbox</div>;
+	}
+}
+const routers = (
+	<BrowserRouter>
+		<div>
+			<Link to={'/about'}>About</Link>
+			<Link to={'/inbox'}>Inbox</Link>
+		{/*<Route path="/" component={App}>*/}
+			{/*<IndexRoute component={Home} />*/}
+			<Route exact={true} path="/" render={()=>(
+				<div>Index</div>
+			)} />
+			<Route path="/about" component={About} />
+			<Route path="/inbox" component={Inbox} />
+		{/*</Route>*/}
+		</div>
+	</BrowserRouter>
+);
 
 
 ReactDOM.render(
-	navbarInstance,
+	routers,
 	document.getElementById('root')
 );
