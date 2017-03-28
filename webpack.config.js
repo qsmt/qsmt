@@ -96,7 +96,8 @@ module.exports = function makeWebpackConfig() {
 		port: 3200,
 		contentBase: './src',
 		watchContentBase: true,
-		open: true
+		historyApiFallback: true,
+		open: true,
 	};
 
 	return config;
