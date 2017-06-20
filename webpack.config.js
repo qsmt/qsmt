@@ -84,7 +84,7 @@ module.exports = function makeWebpackConfig() {
 				}
 			}),
 			new webpack.NoEmitOnErrorsPlugin(),
-			new webpack.optimize.UglifyJsPlugin(),
+			// new webpack.optimize.UglifyJsPlugin(),
 			new CopyWebpackPlugin([{
 				from: 'src/images',
 				to: 'images'
