@@ -9,6 +9,8 @@ import {LinkContainer} from 'react-router-bootstrap';
 import 'bootstrap/less/bootstrap.less';
 import '../less/style.less';
 
+import {Career,Footer} from './components';
+
 
 import logo from '../images/logo.png';
 const navbarInstance = (
@@ -74,12 +76,10 @@ const routers = (
 						<LinkContainer to="/about"><NavItem eventKey={3} href="#">成功案例</NavItem></LinkContainer>
 						<LinkContainer to="/about"><NavItem eventKey={4} href="#">解决方案</NavItem></LinkContainer>
 						<LinkContainer to="/about"><NavItem eventKey={5} href="#">伙伴计划</NavItem></LinkContainer>
-						<LinkContainer to="/about"><NavItem eventKey={6} href="#">加入我们</NavItem></LinkContainer>
+						<LinkContainer to="/career"><NavItem eventKey={6} href="#">加入我们</NavItem></LinkContainer>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
-			<NavLink to={'/about'}>About</NavLink>
-			<NavLink to={'/inbox'}>Inbox</NavLink>
 			{/*<Route path="/" component={App}>*/}
 			{/*<IndexRoute component={Home} />*/}
 			<Route exact={true} path="/" render={() => (
@@ -87,7 +87,9 @@ const routers = (
 			)}/>
 			<Route path="/about" component={About}/>
 			<Route path="/inbox" component={Inbox}/>
+			<Route path="/career" component={Career}/>
 			{/*</Route>*/}
+			<Footer/>
 		</div>
 	</BrowserRouter>
 );
