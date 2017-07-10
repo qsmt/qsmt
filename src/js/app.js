@@ -1,9 +1,10 @@
-
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 // import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router'
-import {Navbar,Nav,NavItem,NavDropdown,MenuItem} from 'react-bootstrap';
-import {BrowserRouter, Link,Route} from 'react-router-dom';
+import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import {BrowserRouter, Link, Route, NavLink} from 'react-router-dom';
+
+import {LinkContainer} from 'react-router-bootstrap';
 
 import 'bootstrap/less/bootstrap.less';
 import '../less/style.less';
@@ -15,7 +16,7 @@ const navbarInstance = (
 		<Navbar.Header>
 			<Navbar.Brand>
 				<a href="#">
-					<span><img src={logo} /></span>
+					<span><img src={logo}/></span>
 					青色麦田
 				</a>
 			</Navbar.Brand>
@@ -56,16 +57,37 @@ class Inbox extends Component {
 const routers = (
 	<BrowserRouter>
 		<div>
-			<Link to={'/about'}>About</Link>
-			<Link to={'/inbox'}>Inbox</Link>
-		{/*<Route path="/" component={App}>*/}
+			<Navbar inverse collapseOnSelect>
+				<Navbar.Header>
+					<Navbar.Brand>
+						<a href="#">
+							<span><img src={logo}/></span>
+							青色麦田
+						</a>
+					</Navbar.Brand>
+					<Navbar.Toggle />
+				</Navbar.Header>
+				<Navbar.Collapse>
+					<Nav pullRight>
+						<LinkContainer to="/" exact={true}><NavItem eventKey={1}>首页</NavItem></LinkContainer>
+						<LinkContainer to="/about"><NavItem eventKey={2} href="#">关于我们</NavItem></LinkContainer>
+						<LinkContainer to="/about"><NavItem eventKey={3} href="#">成功案例</NavItem></LinkContainer>
+						<LinkContainer to="/about"><NavItem eventKey={4} href="#">解决方案</NavItem></LinkContainer>
+						<LinkContainer to="/about"><NavItem eventKey={5} href="#">伙伴计划</NavItem></LinkContainer>
+						<LinkContainer to="/about"><NavItem eventKey={6} href="#">加入我们</NavItem></LinkContainer>
+					</Nav>
+				</Navbar.Collapse>
+			</Navbar>
+			<NavLink to={'/about'}>About</NavLink>
+			<NavLink to={'/inbox'}>Inbox</NavLink>
+			{/*<Route path="/" component={App}>*/}
 			{/*<IndexRoute component={Home} />*/}
-			<Route exact={true} path="/" render={()=>(
+			<Route exact={true} path="/" render={() => (
 				<div>Index</div>
-			)} />
-			<Route path="/about" component={About} />
-			<Route path="/inbox" component={Inbox} />
-		{/*</Route>*/}
+			)}/>
+			<Route path="/about" component={About}/>
+			<Route path="/inbox" component={Inbox}/>
+			{/*</Route>*/}
 		</div>
 	</BrowserRouter>
 );
