@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
 class IndexPartners extends Component {
 	render() {
@@ -23,7 +22,5 @@ class IndexPartners extends Component {
 	}
 }
 
-IndexPartners.propTypes = {};
-IndexPartners.defaultProps = {};
 
 export default IndexPartners;

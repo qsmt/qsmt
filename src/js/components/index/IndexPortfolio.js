@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import { LinkContainer } from 'react-router-bootstrap';
 
 import {IndexPortfolioItem,Portfolio} from '../portfolio';
@@ -69,7 +68,5 @@ class IndexPortfolio extends Component {
 
 }
 
-IndexPortfolio.propTypes = {};
-IndexPortfolio.defaultProps = {};
 
 export default IndexPortfolio;

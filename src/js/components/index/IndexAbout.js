@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
 class IndexAbout extends Component {
 	render() {
@@ -34,7 +33,5 @@ class IndexAbout extends Component {
 	}
 }
 
-IndexAbout.propTypes = {};
-IndexAbout.defaultProps = {};
 
 export default IndexAbout;

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 import {Solutions} from '..';
@@ -42,7 +41,5 @@ class IndexSolutions extends Component {
 	}
 }
 
-IndexSolutions.propTypes = {};
-IndexSolutions.defaultProps = {};
 
 export default IndexSolutions;
