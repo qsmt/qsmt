@@ -2,7 +2,14 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { LinkContainer } from 'react-router-bootstrap';
 
+import {IndexPortfolioItem,Portfolio} from '../portfolio';
+
 class IndexPortfolio extends Component {
+
+	constructor(props){
+		super(props);
+		this.state = {};
+	}
 
 	componentDidMount() {
 		fetch('http://www.qsmttech.com/wp-json/wp/v2/posts?categories=' + 3 +
@@ -10,20 +17,13 @@ class IndexPortfolio extends Component {
 			'&page=' + 1 +
 			'&per_page=' + 6)
 			.then((response) => response.json())
-			.then(responseJson => {
-				console.log(responseJson)
-				// this.setState({
-				// 	loading: false,
-				// 	data: responseJson,
-				// 	dataSource: this.ds.cloneWithRows(responseJson),
-				// })
+			.then(items => {
+				this.setState({
+					items
+				});
 			})
 			.catch((error) => {
-				// this.setState({
-				// 	loading: false,
-				// 	data: [],
-				// 	dataSource: this.ds.cloneWithRows([]),
-				// })
+				console.log(error);
 			});
 	}
 
@@ -41,12 +41,12 @@ class IndexPortfolio extends Component {
 							</p>
 						</div>
 					</div>
-					<div className="row">
-						<div portfolio-item ng-repeat="item in $ctrl.portfolios track by item.id" ng-model="item" />
-					</div>
+					{this.state.items &&
+						this._renderItems()
+					}
 					<div className="row">
 						<div className="anli-more text-center col-xs-12">
-							<LinkContainer to="/portfolio" className="btn btn-default btn-lg">
+							<LinkContainer to={Portfolio.path} className="btn btn-default btn-lg">
 								<a className="btn btn-default btn-lg">查看更多案例</a>
 							</LinkContainer>
 						</div>
@@ -55,6 +55,18 @@ class IndexPortfolio extends Component {
 			</div>
 		);
 	}
+
+	_renderItems(){
+		const items = this.state.items.map(item => (
+			<IndexPortfolioItem key={item.id} {...item} />
+		));
+		return(
+			<div className="row">
+				{items}
+			</div>
+		)
+	}
+
 }
 
 IndexPortfolio.propTypes = {};
