@@ -9,7 +9,6 @@ class About extends PureComponent {
 		this.state = {
 			loading: true
 		};
-		this.handleClick = this.handleClick.bind(this);
 	}
 
 	static path = '/about';
