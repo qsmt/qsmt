@@ -7,6 +7,9 @@ class Career extends Component{
 			loading:true
 		};
 	}
+
+	static path = '/career';
+
 	render(){
 		return(
 			<div className="loading-container">

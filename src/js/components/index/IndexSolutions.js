@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
+
+import {Solutions} from '..';
 
 class IndexSolutions extends Component {
 	render() {
@@ -29,7 +32,7 @@ class IndexSolutions extends Component {
 					<div className="row">
 						<div className="col-xs-12">
 							<div className="anli-more text-center">
-								<a ui-sref="solutions" className="btn btn-default btn-lg">查看更多解决方案</a>
+								<Link to={Solutions.path} className="btn btn-default btn-lg">查看更多解决方案</Link>
 							</div>
 						</div>
 					</div>
