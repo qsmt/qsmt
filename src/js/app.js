@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 // import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router'
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
-import {BrowserRouter, Link, Route, NavLink} from 'react-router-dom';
+import {BrowserRouter, Link, Route, NavLink, HashRouter} from 'react-router-dom';
 
 import {LinkContainer} from 'react-router-bootstrap';
 
-import 'bootstrap/less/bootstrap.less';
+// import 'bootstrap/less/bootstrap.less';
 import '../less/style.less';
 
 import {Index, About, Portfolio, Solutions, Partners, Career, Footer} from './components';
@@ -15,7 +15,7 @@ import {Index, About, Portfolio, Solutions, Partners, Career, Footer} from './co
 import logo from '../images/logo.png';
 
 const routers = (
-	<BrowserRouter>
+	<HashRouter>
 		<div>
 			<Navbar inverse collapseOnSelect>
 				<Navbar.Header>
@@ -47,7 +47,7 @@ const routers = (
 			{/*</Route>*/}
 			<Footer/>
 		</div>
-	</BrowserRouter>
+	</HashRouter>
 );
 
 
