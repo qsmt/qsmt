@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Pagination} from 'react-bootstrap';
 
-import IndexPortfolioItem from './PortfolioItem';
+import PortfolioItem from './PortfolioItem';
 
 const categoryId = 3;
-const pageSize = 3;
+const pageSize = 4;
 
 class Portfolio extends Component {
 
@@ -29,7 +29,7 @@ class Portfolio extends Component {
 		this.fetchData();
 	}
 
-	fetchData(pageno = 1){
+	fetchData(pageno = 1) {
 		const url = this.getUrl(pageno);
 		fetch(url)
 			.then(response => {
@@ -50,7 +50,7 @@ class Portfolio extends Component {
 	handleSelect(eventKey) {
 		this.setState({
 			activePage: eventKey,
-			loading:true
+			loading: true
 		});
 		this.fetchData(eventKey);
 	}
@@ -69,31 +69,33 @@ class Portfolio extends Component {
 						<div className="container">
 							<div className="row">
 								{this._renderItems()}
-								<Pagination
-									prev
-									next
-									first
-									last
-									ellipsis
-									boundaryLinks
-									items={this.state.totalPages}
-									maxButtons={5}
-									activePage={this.state.activePage}
-									onSelect={this.handleSelect}/>
+								<nav className="text-center">
+									<Pagination
+										prev
+										next
+										first
+										last
+										ellipsis
+										boundaryLinks
+										items={this.state.totalPages}
+										maxButtons={5}
+										activePage={this.state.activePage}
+										onSelect={this.handleSelect}/>
+								</nav>
 							</div>
 						</div>
 						}
 					</div>
 				</div>
 				{this.state.loading &&
-					<div className="loading"/>}
+				<div className="loading"/>}
 			</div>
 		)
 	}
 
 	_renderItems() {
 		const items = this.state.items.map(item => (
-			<IndexPortfolioItem key={item.id} {...item} />
+			<PortfolioItem key={item.id} {...item} />
 		));
 		return (
 			<div className="row">
