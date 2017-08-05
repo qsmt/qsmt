@@ -70,7 +70,7 @@ module.exports = webpackMerge(commonConfig, {
 		port: 3200,
 		historyApiFallback: true,
 		stats: 'minimal',
-		contentBase: path.resolve(__dirname, '../../src'),
+		// contentBase: path.resolve(__dirname, '../../src'),
 		// open: true
 	}
 });

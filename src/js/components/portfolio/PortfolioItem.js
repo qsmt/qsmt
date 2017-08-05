@@ -1,6 +1,6 @@
 import React from 'react';
 
-class IndexPortfolioItem extends React.Component {
+class PortfolioItem extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -35,4 +35,4 @@ class IndexPortfolioItem extends React.Component {
 	}
 }
 
-export default IndexPortfolioItem;
+export default PortfolioItem;

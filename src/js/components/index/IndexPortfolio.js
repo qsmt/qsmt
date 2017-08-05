@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 
-import {IndexPortfolioItem,Portfolio} from '../portfolio';
+import {PortfolioItem,Portfolio} from '../portfolio';
 
 class IndexPortfolio extends Component {
 
@@ -57,7 +57,7 @@ class IndexPortfolio extends Component {
 
 	_renderItems(){
 		const items = this.state.items.map(item => (
-			<IndexPortfolioItem key={item.id} {...item} />
+			<PortfolioItem key={item.id} {...item} />
 		));
 		return(
 			<div className="row">
