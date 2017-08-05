@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import map from '../../../images/map.png';
+
 class IndexCareer extends Component {
 	render() {
 		return (
@@ -13,7 +15,7 @@ class IndexCareer extends Component {
 					</div>
 					<div className="row">
 						<div className="col-xs-12">
-							<img src="images/map.png" style={{width: '100%', paddingTop: 20}} />
+							<img src={map} style={{width: '100%', paddingTop: 20}} />
 						</div>
 					</div>
 				</div>

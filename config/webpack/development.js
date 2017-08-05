@@ -72,6 +72,13 @@ module.exports = webpackMerge(commonConfig, {
 		stats: 'minimal',
 		// contentBase: path.resolve(__dirname, '../../src'),
 		// open: true
+		proxy: {
+			// "/wp-json": "http://www.qsmttech.com"
+			"/wp-json": {
+				target: "http://www.qsmttech.com",
+				logLevel: 'info'
+			}
+		}
 	}
 });
 

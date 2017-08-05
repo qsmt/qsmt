@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 
+import aboutImage from '../../../images/mt3.jpg';
+
 class IndexAbout extends Component {
 	render() {
 		return (
 			<div id="about">
-				<img src="images/mt3.jpg" style={{width: '100%', height: '20vw', minHeight: 150}} />
+				<img src={aboutImage} style={{width: '100%', height: '20vw', minHeight: 150}} />
 				<div className="container">
 					<div className="row">
 						<div className="page-title col-xs-12">

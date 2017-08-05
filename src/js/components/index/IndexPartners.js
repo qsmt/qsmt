@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import pinpai from '../../../images/pinpai.jpg';
+
 class IndexPartners extends Component {
 	render() {
 		return (
@@ -13,7 +15,7 @@ class IndexPartners extends Component {
 					</div>
 					<div className="row">
 						<div className="col-xs-12">
-							<img src="images/pinpai.jpg" style={{width: '100%', paddingTop: 20}} />
+							<img src={pinpai} style={{width: '100%', paddingTop: 20}} />
 						</div>
 					</div>
 				</div>
