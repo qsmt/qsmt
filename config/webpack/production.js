@@ -1,4 +1,5 @@
 console.log('production');
+var webpack = require('webpack');
 var webpackMerge = require('webpack-merge');
 var commonConfig = require('./common.js');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -17,7 +18,7 @@ module.exports = webpackMerge(commonConfig, {
 		// build folder
 		path: path.resolve(__dirname, '../../dist'),
 		// public path from homepage
-		publicPath: '/',
+		publicPath: '',
 		filename: '[name].[chunkhash:8].js',
 		chunkFilename: '[name].[chunkhash:8].chunk.js',
 	},
@@ -97,7 +98,29 @@ module.exports = webpackMerge(commonConfig, {
 			}
 		}),
 		// Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
-		new ExtractTextPlugin({filename: '[name].[hash:8].css'})
+		new ExtractTextPlugin({filename: '[name].[hash:8].css'}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV: JSON.stringify('production')
+			}
+		}),
+		new webpack.optimize.UglifyJsPlugin({
+			compress: {
+				warnings: false,
+				// Disabled because of an issue with Uglify breaking seemingly valid code:
+				// https://github.com/facebookincubator/create-react-app/issues/2376
+				// Pending further investigation:
+				// https://github.com/mishoo/UglifyJS2/issues/2011
+				comparisons: false,
+			},
+			output: {
+				comments: false,
+				// Turned on because emoji and regex is not minified properly using default
+				// https://github.com/facebookincubator/create-react-app/issues/2488
+				ascii_only: true,
+			},
+			sourceMap: true,
+		})
 	],
 
 });
