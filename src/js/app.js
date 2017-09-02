@@ -9,8 +9,8 @@ import {LinkContainer} from 'react-router-bootstrap';
 // import 'bootstrap/less/bootstrap.less';
 import '../less/style.less';
 
-import {Index, About, Portfolio, Solutions, Partners, Career, Footer} from './components';
-
+// import {Index, About, Portfolio, Solutions, Partners, Career, Footer} from './components';
+import {Index, About, Portfolio, Solutions, Partners, Career, Footer} from './static-components';
 
 import logo from '../images/logo.png';
 

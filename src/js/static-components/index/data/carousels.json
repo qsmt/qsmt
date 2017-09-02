@@ -1,0 +1,25 @@
+[{
+  "image":"images/carousel1.png",
+  "text":"1",
+  "id":1
+},{
+  "image":"images/carousel2.png",
+  "text":"2",
+  "id":2
+},{
+  "image":"images/carousel3.png",
+  "text":"3",
+  "id":3
+},{
+  "image":"images/carousel4.png",
+  "text":"4",
+  "id":4
+},{
+  "image":"images/carousel5.png",
+  "text":"5",
+  "id":5
+},{
+  "image":"images/carousel6.png",
+  "text":"6",
+  "id":6
+}]
