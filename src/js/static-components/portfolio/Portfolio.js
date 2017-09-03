@@ -8,13 +8,12 @@ class Portfolio extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state={
+		this.state = {
 			items: portfolioData
 		}
 	}
 
 	static path = '/portfolio';
-
 
 
 	render() {
@@ -26,14 +25,10 @@ class Portfolio extends Component {
 							<h1>成功案例</h1>
 							<div className="divider"></div>
 						</div>
-						{this.state.items &&
-						<div className="container">
-							<div className="row">
-								{this._renderItems()}
-							</div>
-						</div>
-						}
 					</div>
+					{this.state.items &&
+					this._renderItems()
+					}
 				</div>
 				{this.state.loading &&
 				<div className="loading"/>}
@@ -42,8 +37,8 @@ class Portfolio extends Component {
 	}
 
 	_renderItems() {
-		const items = this.state.items.map((item,i) => (
-			<PortfolioItem key={i} src={item} />
+		const items = this.state.items.map((item, i) => (
+			<PortfolioItem key={i} src={item}/>
 		));
 		return (
 			<div className="row">
