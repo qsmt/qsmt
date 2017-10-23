@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import {Link, Route, HashRouter} from 'react-router-dom';
 
