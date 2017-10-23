@@ -16,7 +16,6 @@ class IndexCarousel extends PureComponent {
 
 	render() {
 		const items = images.map((item,index) =>{
-
 			return <Carousel.Item key={index}>
 				<img src={images[index]} alt={''}/>
 				{/*<Carousel.Caption>*/}

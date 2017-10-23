@@ -70,11 +70,11 @@ class IndexService extends Component {
 }
 
 const ServiceList = ({data}) => (
-    data.map(item => (
-        <div className="row">
+    <div className="row">
+        {data.map(item => (
             <ServiceItem data={item}/>
-        </div>
-    ))
+        ))}
+    </div>
 );
 
 const ServiceItem = ({data}) => (
