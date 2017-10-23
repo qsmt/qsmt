@@ -1,6 +1,7 @@
 import React from 'react';
 
 import defaultImage from '../../images/no-image-box.png';
+import './portfolio.css'
 
 class PortfolioItem extends React.Component {
 	constructor(props){
