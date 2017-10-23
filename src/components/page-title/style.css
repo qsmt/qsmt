@@ -1,0 +1,18 @@
+.page-title {
+    color: #337ab7;
+    text-align: center;
+    font-size: 45px;
+    margin: 20px 0;
+}
+.page-title .divider {
+    margin: 0 auto;
+    width: 71px;
+    height: 4px;
+    background-color: #888;
+    border: 1px solid #888;
+}
+.page-title p{
+    margin-top: 10px;
+    line-height: 35px;
+    font-size: 16px;
+}
