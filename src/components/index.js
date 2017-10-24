@@ -8,8 +8,10 @@
 // import Footer from './Footer';
 import PageTitle from './page-title';
 import SubNav from './sub-nav';
+import ImagePage from './ImagePage';
 
 export {
     PageTitle,
     SubNav,
+    ImagePage,
 };

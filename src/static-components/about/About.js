@@ -1,5 +1,5 @@
 import React from 'react';
-import { SubNav, PageTitle } from '../../components';
+import { ImagePage } from '../../components';
 
 import img from './about.jpg';
 import image1 from './1.jpg';
@@ -28,13 +28,6 @@ const data = [
 
 class About extends React.PureComponent {
 
-	constructor(props) {
-		super(props);
-		this.handleClick = this.handleClick.bind(this);
-		this.state = {
-            select: 0
-		};
-	}
 
 	static path = '/about';
 
@@ -44,32 +37,11 @@ class About extends React.PureComponent {
 				<div>
 					<img src={img} style={{width: '100%', height: '20vw'}} alt={''}/>
 				</div>
-				<div className="loading-container">
-					<div className="container">
-						<div className="row">
-							<div className="col-xs-12 col-sm-2">
-								<SubNav data={data} handleClick={this.handleClick} selectIndex={this.state.select}/>
-							</div>
-							<div className="col-xs-12 col-sm-10">
-								<PageTitle title={data[this.state.select].title}/>
-								<div className="row">
-									<div className="col-xs-12">
-										<img src={data[this.state.select].image} alt={''} />
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<ImagePage data={data}/>
 			</div>
 		)
 	}
 
-	handleClick(index) {
-		this.setState({
-			select: index
-		});
-	}
 
 
 }
