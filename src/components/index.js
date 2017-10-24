@@ -7,5 +7,9 @@
 // import Career from './career/Career';
 // import Footer from './Footer';
 import PageTitle from './page-title';
+import SubNav from './sub-nav';
 
-export { PageTitle,};
+export {
+    PageTitle,
+    SubNav,
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import { SubNav, PageTitle } from '../../components';
 
 import img from './about.jpg';
 import image1 from './1.jpg';
@@ -29,6 +30,7 @@ class About extends React.PureComponent {
 
 	constructor(props) {
 		super(props);
+		this.handleClick = this.handleClick.bind(this);
 		this.state = {
             select: 0
 		};
@@ -45,8 +47,15 @@ class About extends React.PureComponent {
 				<div className="loading-container">
 					<div className="container">
 						<div className="row">
-							{this._renderNav()}
-							{this._renderContent()}
+							<SubNav data={data} handleClick={this.handleClick} selectIndex={this.state.select}/>
+							<div className="col-xs-12 col-sm-10">
+								<PageTitle title={data[this.state.select].title}/>
+								<div className="row">
+									<div className="col-xs-12">
+										<img src={data[this.state.select].image} alt={''} />
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -60,44 +69,7 @@ class About extends React.PureComponent {
 		});
 	}
 
-	_renderNav() {
-		const nav = data.map((item, index) => {
-			const className = index === this.state.select ?
-				"col-xs-3 col-sm-12 repeated-item active" :
-				"col-xs-3 col-sm-12 repeated-item";
-			return (
-				<li key={index} className={className}>
-					<a //href="javascript:void(0)"
-					   onClick={e => this.handleClick(index)}>{item.title}</a>
-				</li>
-			)
-		});
-		return (
-			<div className="col-xs-12 col-sm-2">
-				<ul className="nav nav-pills qsmt-sub-nav">
-					{nav}
-				</ul>
-			</div>
-		);
-	}
 
-	_renderContent() {
-		return (
-			<div className="col-xs-12 col-sm-10">
-				<div className="row">
-					<div className="page-title col-xs-12">
-						<h1>{data[this.state.select].title}</h1>
-						<div className="divider"/>
-					</div>
-				</div>
-				<div className="row">
-					<div className="col-xs-12">
-						<img src={data[this.state.select].image} alt={''} />
-					</div>
-				</div>
-			</div>
-		)
-	}
 }
 
 export default About;
