@@ -71,8 +71,8 @@ class IndexService extends Component {
 
 const ServiceList = ({data}) => (
     <div className="row">
-        {data.map(item => (
-            <ServiceItem data={item}/>
+        {data.map((item, index) => (
+            <ServiceItem key={index} data={item}/>
         ))}
     </div>
 );
@@ -86,8 +86,8 @@ const ServiceItem = ({data}) => (
         </div>
         <div className="service-item-content">
             <ul>
-                {data.content.map(item => (
-                    <li>{item}</li>
+                {data.content.map((item, index) => (
+                    <li key={index}>{item}</li>
                 ))}
             </ul>
         </div>

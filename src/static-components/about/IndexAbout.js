@@ -21,8 +21,8 @@ class IndexAbout extends Component {
 					<div className="row">
 						<div className="col-xs-12">
 							<ul>
-								{descriptions.map(item => (
-									<li>{item}</li>
+								{descriptions.map((item, index) => (
+									<li key={index}>{item}</li>
 								))}
 							</ul>
 						</div>
