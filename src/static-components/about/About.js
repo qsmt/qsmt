@@ -47,7 +47,9 @@ class About extends React.PureComponent {
 				<div className="loading-container">
 					<div className="container">
 						<div className="row">
-							<SubNav data={data} handleClick={this.handleClick} selectIndex={this.state.select}/>
+							<div className="col-xs-12 col-sm-2">
+								<SubNav data={data} handleClick={this.handleClick} selectIndex={this.state.select}/>
+							</div>
 							<div className="col-xs-12 col-sm-10">
 								<PageTitle title={data[this.state.select].title}/>
 								<div className="row">

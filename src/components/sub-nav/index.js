@@ -17,11 +17,9 @@ class SubNav extends React.Component{
             )
         });
         return (
-            <div className="col-xs-12 col-sm-2">
                 <ul className="nav nav-pills qsmt-sub-nav">
                     {nav}
                 </ul>
-            </div>
         )
     }
 }
